@@ -8,12 +8,9 @@ exports.SNEK_CHARS = [
   ['⠁', '⠉'],
 ];
 
+// Do one segment of the snek
 // eslint-disable-next-line thehelp/no-mutation
-exports.SNEK_DELAY = 50;
-
-// Do one cycle of the snek
-// eslint-disable-next-line thehelp/no-mutation
-exports.snekCycle = function snekCycle(charset, delay, stream = process.stdout) {
+exports.snekSegment = function snekSegment(charset, delay, stream = process.stdout) {
   for (const segment of charset) {
     for (const segmentChar of segment) {
       stream.write(segmentChar);
@@ -25,8 +22,13 @@ exports.snekCycle = function snekCycle(charset, delay, stream = process.stdout) 
   }
 };
 
-// Make the snek go all the way across the terminal
-// const cycles = Math.floor(process.stdout.columns / SNEK_CHARS.length);
-// for (let i = 0; i <= cycles; i++) {
-//   snekCycle(SNEK_CHARS, SNEK_DELAY);
-// }
+// Do the snek a certin number of cycles
+exports.snekCycles = function snekCycles(cycles, charset, delay, stream = process.stdout) {
+  for (let i = 0; i < cycles; i++) {
+    exports.snekSegment(
+      charset,
+      delay,
+      stream
+    );
+  }
+};

@@ -11,8 +11,12 @@ test.beforeEach((t) => {
   };
 });
 
-test.serial('print a single snek cycle', (t) => {
-  snek.snekCycle(snek.SNEK_CHARS, snek.SNEK_DELAY, t.context.stream);
+test.serial('print a single snek segment', (t) => {
+  snek.snekSegment(
+    snek.SNEK_CHARS,
+    1,
+    t.context.stream
+  );
   t.deepEqual(
     t.context.outputLog,
     [
@@ -21,5 +25,24 @@ test.serial('print a single snek cycle', (t) => {
       '⠁', '\b', '⠉',
     ]
   );
+});
+
+test.serial('print two snek segments', (t) => {
+  snek.snekCycles(
+    2,
+    snek.SNEK_CHARS,
+    1,
+    t.context.stream
+  );
+  const expected = [
+    '⠁', '\b', '⠃', '\b', '⠇', '\b', '⠧',
+    '⠄', '\b', '⠤', '\b', '⠴', '\b', '⠼',
+    '⠁', '\b', '⠉',
+
+    '⠁', '\b', '⠃', '\b', '⠇', '\b', '⠧',
+    '⠄', '\b', '⠤', '\b', '⠴', '\b', '⠼',
+    '⠁', '\b', '⠉',
+  ];
+  t.deepEqual(t.context.outputLog.length, expected.length);
 });
 

@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "Danger noodle in your terminal",
   "main": "src/index.js",
+  "bin": "bin/snek.js",
   "scripts": {
     "test": "ava",
-    "lint": "eslint src/ test/"
+    "lint": "eslint src/ bin/ test/"
   },
   "config": {
     "ghooks": {
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/giodamelio/snek#readme",
   "dependencies": {
+    "minimist": "^1.2.0",
     "sleep": "^5.1.0"
   },
   "devDependencies": {
