@@ -5,6 +5,7 @@ node_js:
 script: yarn run coverage
 after_success:
   - yarn run lint
+  - yarn run coveralls
 
 # Allow the sleep module to build
 env:
