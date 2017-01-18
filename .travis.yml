@@ -2,9 +2,10 @@ language: node_js
 node_js:
   - "node"
   - "6"
-script: yarn run coverage
-after_success:
+script:
+  - yarn run coverage
   - yarn run lint
+after_success:
   - yarn run coveralls
 
 # Allow the sleep module to build
