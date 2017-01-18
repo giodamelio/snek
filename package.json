@@ -22,5 +22,9 @@
   "homepage": "https://github.com/giodamelio/snek#readme",
   "dependencies": {
     "sleep": "^5.1.0"
+  },
+  "devDependencies": {
+    "@scottnonnenberg/eslint-config-thehelp": "^0.6.1",
+    "eslint": "^3.13.1"
   }
 }
