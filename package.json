@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/giodamelio/snek/issues"
   },
-  "homepage": "https://github.com/giodamelio/snek#readme"
+  "homepage": "https://github.com/giodamelio/snek#readme",
+  "dependencies": {
+    "sleep": "^5.1.0"
+  }
 }
