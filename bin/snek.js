@@ -2,7 +2,7 @@
 /* eslint no-console: "off", no-process-exit: "off" */
 const minimist = require('minimist');
 
-const snek = require('../src');
+const Snek = require('../src');
 const version = require('../package.json').version;
 
 const argv = minimist(process.argv.slice(2));
@@ -18,18 +18,18 @@ if (argv.h || argv.help) {
 }
 
 // Calculate how man segments the snake can have to fit on one line
-const segments = Math.floor(process.stdout.columns / snek.SNEK_CHARS.length);
+// const segments = Math.floor(process.stdout.columns / snek.SNEK_CHARS.length);
 switch (argv._[0]) {
   case 'quick':
-    snek.snekCycles(segments, snek.SNEK_CHARS, 25);
+    new Snek({ delay: 25 }).draw(process.stdout.columns);
     break;
   case 'flash':
-    snek.snekCycles(segments, snek.SNEK_CHARS, 1);
+    new Snek({ delay: 1 }).draw(process.stdout.columns);
     break;
   case 'tiny':
   case 'baby':
-    snek.snekCycles(3, snek.SNEK_CHARS, 100);
+    new Snek().draw(9);
     break;
   default:
-    snek.snekCycles(segments, snek.SNEK_CHARS, 100);
+    new Snek().draw(process.stdout.columns);
 }

@@ -1,6 +1,6 @@
 const test = require('ava').test;
 
-const snek = require('../src');
+const Snek = require('../src');
 
 test.beforeEach((t) => {
   t.context.outputLog = [];
@@ -12,11 +12,10 @@ test.beforeEach((t) => {
 });
 
 test.serial('print a single snek segment', (t) => {
-  snek.snekSegment(
-    snek.SNEK_CHARS,
-    1,
-    t.context.stream
-  );
+  new Snek({
+    output: t.context.stream,
+    delay: 1,
+  }).segment();
   t.deepEqual(
     t.context.outputLog,
     [
@@ -28,12 +27,11 @@ test.serial('print a single snek segment', (t) => {
 });
 
 test.serial('print two snek segments', (t) => {
-  snek.snekCycles(
-    2,
-    snek.SNEK_CHARS,
-    1,
-    t.context.stream
-  );
+  // The default snake has three chars in a segment
+  new Snek({
+    output: t.context.stream,
+    delay: 1,
+  }).draw(6);
   const expected = [
     '⠁', '\b', '⠃', '\b', '⠇', '\b', '⠧',
     '⠄', '\b', '⠤', '\b', '⠴', '\b', '⠼',

@@ -8,27 +8,39 @@ exports.SNEK_CHARS = [
   ['⠁', '⠉'],
 ];
 
-// Do one segment of the snek
-// eslint-disable-next-line thehelp/no-mutation
-exports.snekSegment = function snekSegment(charset, delay, stream = process.stdout) {
-  for (const segment of charset) {
-    for (const segmentChar of segment) {
-      stream.write(segmentChar);
-      sleep.msleep(delay);
-      if (segment.indexOf(segmentChar) + 1 !== segment.length) {
-        stream.write('\b');
-      }
+module.exports = class Snek {
+  constructor({
+    charset = exports.SNEK_CHARS,
+    delay = 100,
+    output = process.stdout,
+  } = {}) {
+    this.charset = charset;
+    this.delay = delay;
+    this.output = output;
+  }
+
+  // Draw a snake n chars wide
+  draw(width) {
+    const segments = Math.floor(width / this.charset.length);
+    for (let i = 0; i < segments; i++) {
+      this.segment(
+        this.charset,
+        this.delay,
+        this.output
+      );
     }
   }
-};
 
-// Do the snek a certin number of cycles
-exports.snekCycles = function snekCycles(cycles, charset, delay, stream = process.stdout) {
-  for (let i = 0; i < cycles; i++) {
-    exports.snekSegment(
-      charset,
-      delay,
-      stream
-    );
+  // Animate a single reapeatable snake segment
+  segment() {
+    for (const segment of this.charset) {
+      for (const segmentChar of segment) {
+        this.output.write(segmentChar);
+        sleep.msleep(this.delay);
+        if (segment.indexOf(segmentChar) + 1 !== segment.length) {
+          this.output.write('\b');
+        }
+      }
+    }
   }
 };
