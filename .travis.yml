@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "node"
+  - "4"
+  - "6"
+script: yarn run coverage
+after_success:
+  - yarn run lint
