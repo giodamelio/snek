@@ -6,6 +6,7 @@
   "bin": "bin/snek.js",
   "scripts": {
     "test": "ava",
+    "coverage": "nyc ava",
     "lint": "eslint src/ bin/ test/"
   },
   "config": {
@@ -35,6 +36,7 @@
     "@scottnonnenberg/eslint-config-thehelp": "^0.6.1",
     "ava": "^0.17.0",
     "eslint": "^3.13.1",
-    "ghooks": "^2.0.0"
+    "ghooks": "^2.0.0",
+    "nyc": "^10.1.2"
   }
 }
