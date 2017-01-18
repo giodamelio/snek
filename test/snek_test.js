@@ -44,3 +44,8 @@ test.serial('print two snek segments', (t) => {
   t.deepEqual(t.context.outputLog.length, expected.length);
 });
 
+test.serial('create a snek with default options', (t) => {
+  new Snek().draw();
+  t.pass();
+});
+
