@@ -4,7 +4,13 @@
   "description": "Danger noodle in your terminal",
   "main": "src/index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "lint": "eslint src/ test/"
+  },
+  "config": {
+    "ghooks": {
+      "pre-push": "npm run lint"
+    }
   },
   "repository": {
     "type": "git",
@@ -26,6 +32,7 @@
   "devDependencies": {
     "@scottnonnenberg/eslint-config-thehelp": "^0.6.1",
     "ava": "^0.17.0",
-    "eslint": "^3.13.1"
+    "eslint": "^3.13.1",
+    "ghooks": "^2.0.0"
   }
 }
