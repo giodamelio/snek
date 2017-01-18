@@ -11,7 +11,7 @@ exports.SNEK_CHARS = [
 module.exports = class Snek {
   constructor({
     charset = exports.SNEK_CHARS,
-    delay = 100,
+    delay = 100, // eslint-disable-line no-magic-numbers
     output = process.stdout,
   } = {}) {
     this.charset = charset;

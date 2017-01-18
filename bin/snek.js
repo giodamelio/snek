@@ -28,7 +28,7 @@ switch (argv._[0]) {
     break;
   case 'tiny':
   case 'baby':
-    new Snek().draw(9);
+    new Snek().draw(9); // eslint-disable-line no-magic-numbers
     break;
   default:
     new Snek().draw(process.stdout.columns);
