@@ -12,6 +12,8 @@ if (argv.h || argv.help) {
   console.log('usage: snek');
   console.log('       snek quick');
   console.log('       snek flash');
+  console.log('       snek tiny');
+  console.log('       snek baby');
   process.exit(0);
 }
 
@@ -19,11 +21,15 @@ if (argv.h || argv.help) {
 const segments = Math.floor(process.stdout.columns / snek.SNEK_CHARS.length);
 switch (argv._[0]) {
   case 'quick':
-    snek.snekCycles(segments, snek.SNEK_CHARS, 50);
+    snek.snekCycles(segments, snek.SNEK_CHARS, 25);
     break;
   case 'flash':
     snek.snekCycles(segments, snek.SNEK_CHARS, 1);
     break;
+  case 'tiny':
+  case 'baby':
+    snek.snekCycles(3, snek.SNEK_CHARS, 100);
+    break;
   default:
-    snek.snekCycles(segments, snek.SNEK_CHARS, 200);
+    snek.snekCycles(segments, snek.SNEK_CHARS, 100);
 }
