@@ -1,22 +1,18 @@
 const sleep = require('sleep');
-
-// ⠧⠼⠉⠧⠼⠉
-// eslint-disable-next-line thehelp/no-mutation
-exports.SNEK_CHARS = [
-  ['⠁', '⠃', '⠇', '⠧'],
-  ['⠄', '⠤', '⠴', '⠼'],
-  ['⠁', '⠉'],
-];
+const Charm = require('charm');
 
 module.exports = class Snek {
   constructor({
-    charset = exports.SNEK_CHARS,
+    charset = exports.NORMAL_SNEK_CHARS,
     delay = 100, // eslint-disable-line no-magic-numbers
     output = process.stdout,
   } = {}) {
     this.charset = charset;
     this.delay = delay;
     this.output = output;
+    this.charm = new Charm();
+    this.charm.pipe(this.output);
+    this.charm.reset();
   }
 
   // Draw a snake n chars wide
@@ -29,11 +25,29 @@ module.exports = class Snek {
         this.output
       );
     }
+    this.output.write('\n\n');
   }
 
   // Animate a single reapeatable snake segment
   segment() {
     for (const segment of this.charset) {
+      if (typeof segment === 'string') {
+        // eslint-disable-next-line security/detect-object-injection
+        // this.charm.down(2);
+        switch (segment) {
+          case 'down':
+            this.output.write('\n');
+            break;
+          case 'up':
+            this.charm.up(1);
+            this.charm.left(1);
+            break;
+          default:
+            break;
+        }
+        // eslint-disable-next-line no-continue
+        continue;
+      }
       for (const segmentChar of segment) {
         this.output.write(segmentChar);
         sleep.msleep(this.delay);
@@ -44,3 +58,20 @@ module.exports = class Snek {
     }
   }
 };
+
+// ⠧⠼⠉⠧⠼⠉
+module.exports.NORMAL_SNEK_CHARS = [
+  ['⠁', '⠃', '⠇', '⠧'],
+  ['⠄', '⠤', '⠴', '⠼'],
+  ['⠁', '⠉'],
+];
+
+module.exports.TALL_SNEK_CHARS = [
+  ['⠁', '⠃', '⠇'],
+  'down',
+  ['⠁', '⠃', '⠇', '⠧'],
+  ['⠄', '⠤', '⠴', '⠼'],
+  'up',
+  ['⠠', '⠰', '⠸'],
+  ['⠁', '⠉'],
+];

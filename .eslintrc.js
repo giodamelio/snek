@@ -8,5 +8,6 @@ module.exports = {
     'arrow-parens': ['error', 'always'],
     'func-names': 'off',
     'no-plusplus': ['error', { 'allowForLoopAfterthoughts': true }],
+    'brace-style': ['error', '1tbs'],
   },
 };
