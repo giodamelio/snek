@@ -7,7 +7,6 @@ module.exports = {
     'import/no-commonjs': 'off',
     'arrow-parens': ['error', 'always'],
     'func-names': 'off',
-    'no-plusplus': ['error', { 'allowForLoopAfterthoughts': true }],
     'brace-style': ['error', '1tbs'],
   },
 };

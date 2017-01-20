@@ -42,7 +42,7 @@
     "sleep": "^5.1.0"
   },
   "devDependencies": {
-    "@scottnonnenberg/eslint-config-thehelp": "^0.6.1",
+    "@scottnonnenberg/eslint-config-thehelp": "^0.7.0",
     "ava": "^0.17.0",
     "coveralls": "^2.11.15",
     "eslint": "^3.13.1",
