@@ -3,16 +3,15 @@ const Charm = require('charm');
 
 module.exports = class Snek {
   constructor({
-    charset = exports.NORMAL_SNEK_CHARS,
+    charset = module.exports.NORMAL_SNEK_CHARS,
     delay = 100, // eslint-disable-line no-magic-numbers
     output = process.stdout,
   } = {}) {
     this.charset = charset;
     this.delay = delay;
-    this.output = output;
-    this.charm = new Charm();
-    this.charm.pipe(this.output);
-    this.charm.reset();
+    this.output = new Charm();
+    this.output.pipe(output);
+    this.output.reset();
   }
 
   // Draw a snake n chars wide
@@ -32,15 +31,14 @@ module.exports = class Snek {
   segment() {
     for (const segment of this.charset) {
       if (typeof segment === 'string') {
-        // eslint-disable-next-line security/detect-object-injection
-        // this.charm.down(2);
         switch (segment) {
           case 'down':
-            this.output.write('\n');
+            this.output.down(1);
+            this.output.left(1);
             break;
           case 'up':
-            this.charm.up(1);
-            this.charm.left(1);
+            this.output.up(1);
+            this.output.left(1);
             break;
           default:
             break;

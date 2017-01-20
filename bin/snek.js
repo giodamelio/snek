@@ -32,7 +32,8 @@ switch (argv._[0]) {
   case 'tall':
     new Snek({
       charset: Snek.TALL_SNEK_CHARS,
-    }).draw(14);
+      delay: 25,
+    }).draw(process.stdout.columns);
     break;
   default:
     new Snek().draw(process.stdout.columns);
