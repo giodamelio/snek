@@ -1,7 +1,7 @@
 // ⠧⠼⠉⠧⠼⠉
 exports.NORMAL_SNEK = {
   delay: 10,
-  maxWidth: process.stdout.columns,
+  width: process.stdout.columns,
   before: [
     ['reset'],
   ],
@@ -16,8 +16,9 @@ exports.NORMAL_SNEK = {
 };
 
 exports.TALL_SNEK = {
-  delay: 25,
-  maxWidth: process.stdout.columns,
+  delay: 10,
+  width: process.stdout.columns,
+  height: 2,
   before: [
     ['reset'],
   ],

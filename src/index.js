@@ -23,9 +23,10 @@ module.exports = class Drawer {
     let currentWidth = 0;
     // Infinitaly repeating generator over items in an array
     const repeatedBody = repeatGenerator(this.instructions.body);
+    const totalMoves = this.instructions.width * this.instructions.height;
 
     for (const instruction of repeatedBody) {
-      if (currentWidth > (this.instructions.maxWidth - 3)) {
+      if (currentWidth > totalMoves) {
         break;
       }
 
@@ -43,6 +44,6 @@ module.exports = class Drawer {
       }
     }
 
-    this.output.write('\n');
+    this.output.write('\n\n');
   }
 };
