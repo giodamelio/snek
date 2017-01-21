@@ -1,6 +1,6 @@
 // ⠧⠼⠉⠧⠼⠉
 exports.NORMAL_SNEK = {
-  delay: 100,
+  delay: 10,
   maxWidth: process.stdout.columns,
   before: [
     ['reset'],

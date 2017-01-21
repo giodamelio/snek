@@ -25,7 +25,7 @@ module.exports = class Drawer {
     const repeatedBody = repeatGenerator(this.instructions.body);
 
     for (const instruction of repeatedBody) {
-      if (currentWidth >= this.instructions.maxWidth) {
+      if (currentWidth > (this.instructions.maxWidth - 3)) {
         break;
       }
 
@@ -35,9 +35,14 @@ module.exports = class Drawer {
           commands.segment(this.output, args[0], this.instructions.delay);
           currentWidth++;
           break;
+        case 'move':
+          commands.move(this.output, args[0]);
+          break;
         default:
           break;
       }
     }
+
+    this.output.write('\n');
   }
 };
