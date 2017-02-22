@@ -1,5 +1,5 @@
 module.exports = {
   extends: [
-    '@scottnonnenberg/thehelp/test',
+    '@giodamelio/thehelpining/test',
   ],
 };
