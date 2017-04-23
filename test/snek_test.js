@@ -1,7 +1,5 @@
 const test = require('ava').test;
 
-const Snek = require('../src');
-
 test.beforeEach((t) => {
   t.context.outputLog = [];
   t.context.stream = {
@@ -12,5 +10,5 @@ test.beforeEach((t) => {
 });
 
 test.serial('', (t) => {
+  t.pass();
 });
-
