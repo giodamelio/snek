@@ -5,18 +5,11 @@
   "main": "src/index.js",
   "bin": "bin/snek.js",
   "scripts": {
-    "test": "ava",
-    "coverage": "nyc ava",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint src/ bin/ test/",
     "prepush": "npm run lint"
-  },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 90,
-    "statements": 90,
-    "functions": 90,
-    "branches": 90
   },
   "repository": {
     "type": "git",
@@ -39,10 +32,9 @@
   },
   "devDependencies": {
     "@giodamelio/eslint-config-thehelpining": "^0.1.0",
-    "ava": "^0.17.0",
     "coveralls": "^2.11.15",
     "eslint": "^3.13.1",
     "husky": "^0.12.0",
-    "nyc": "^10.1.2"
+    "jest": "^20.0.4"
   }
 }
