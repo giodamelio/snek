@@ -17,24 +17,4 @@ if (argv.h || argv.help) {
   process.exit(0);
 }
 
-// Calculate how man segments the snake can have to fit on one line
-switch (argv._[0]) {
-  case 'quick':
-    new Snek({ delay: 25 }).draw(process.stdout.columns);
-    break;
-  case 'flash':
-    new Snek({ delay: 1 }).draw(process.stdout.columns);
-    break;
-  case 'tiny':
-  case 'baby':
-    new Snek().draw(9); // eslint-disable-line no-magic-numbers
-    break;
-  case 'tall':
-    new Snek({
-      charset: Snek.TALL_SNEK_CHARS,
-      delay: 25,
-    }).draw(process.stdout.columns);
-    break;
-  default:
-    new Snek().draw(process.stdout.columns);
-}
+console.log('Hello World!');
