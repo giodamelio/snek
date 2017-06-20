@@ -1,18 +1,13 @@
 // ⠧⠼⠉⠧⠼⠉
 exports.NORMAL_SNEK = {
-  delay: 10,
-  width: process.stdout.columns,
-  before: [
-    ['reset'],
-  ],
   body: [
-    ['segment', ['⠁', '⠃', '⠇', '⠧']],
-    ['segment', ['⠄', '⠤', '⠴', '⠼']],
-    ['segment', ['⠁', '⠉']],
+    ['⠁', '⠃', '⠇', '⠧'],
+    ['⠄', '⠤', '⠴', '⠼'],
+    ['⠁', '⠉'],
   ],
-  after: [
-    ['newline'],
-  ],
+  render(frames) {
+    console.log(this.body);
+  }
 };
 
 exports.TALL_SNEK = {
