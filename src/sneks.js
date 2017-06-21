@@ -1,5 +1,5 @@
 // ⠧⠼⠉⠧⠼⠉
-exports.NORMAL_SNEK = {
+exports.TINY_SNEK = {
   delay: 100,
   width: process.stdout.columns,
   height: 2,
