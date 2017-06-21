@@ -4,4 +4,7 @@ module.exports = {
     '@giodamelio/thehelpining/es2015',
     '@giodamelio/thehelpining/node',
   ],
+  rules: {
+    'filenames/match-regex': 'off',
+  },
 };

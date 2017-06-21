@@ -15,6 +15,9 @@ exports[`print help 1`] = `
 usage: snek
        snek tiny
        snek tall
+
+       You can also add modifiers to your sneks to make them do things
+       --fast  Doubles the sneks speed
 [0m[?1000l[?1002l[?1003l[?1004l"
 `;
 

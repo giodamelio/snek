@@ -4,7 +4,7 @@ const { msleep } = require('sleep');
 const commands = {
   // Draw a segment to the terminal char by char with the proper delay
   segment(buffer, snek, chars) {
-    for (char of chars) {
+    for (const char of chars) {
       // Draw a char
       buffer.put(
         {
@@ -37,6 +37,8 @@ const commands = {
       case 'left':
         buffer.moveTo(buffer.cx - 1, buffer.cy);
         break;
+      default:
+        break;
     }
   },
 };
@@ -56,19 +58,17 @@ module.exports = function runSnek(snek, overrides) {
   // Move down to the bottom of the terminal
   buffer.moveTo(buffer.cx, buffer.height - snek.height);
 
-  // TODO: handle the before
-
   // Render the body of the snek
   do {
     for (const [command, ...args] of snek.body) {
       if (overrides.debug) {
+        // eslint-disable-next-line no-console
         console.log(command, ...args);
       } else {
+        // eslint-disable-next-line security/detect-object-injection
         commands[command](buffer, snek, ...args);
         buffer.draw();
       }
     }
   } while (buffer.cx + snek.width < buffer.width && !overrides.debug);
-
-  // TODO: handle the after
 };
