@@ -11,7 +11,7 @@ move right
 `;
 
 exports[`print help 1`] = `
-"snek version 0.1.0
+"snek version 0.2.0
 usage: snek
        snek tiny
        snek tall
