@@ -59,7 +59,4 @@ module.exports = function runSnek(snek) {
   }
 
   // TODO: handle the after
-
-  // Wait forever
-  while (true) {}
 };

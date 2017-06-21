@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`print hello world 1`] = `
-"Hello World!
-"
-`;
-
 exports[`print help 1`] = `
 "snek version 0.1.0
 usage: snek
-       snek quick
-       snek flash
        snek tiny
-       snek baby
-"
+       snek tall
+[0m[?1000l[?1002l[?1003l[?1004l"
 `;

@@ -14,11 +14,3 @@ it('print help', () => {
   expect(stdout).toMatchSnapshot();
   expect(stderr).toBe('');
 });
-
-it('print hello world', () => {
-  const { status, stdout, stderr } = runSnek();
-
-  expect(status).toBe(0);
-  expect(stdout).toMatchSnapshot();
-  expect(stderr).toBe('');
-});
