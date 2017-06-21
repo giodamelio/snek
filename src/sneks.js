@@ -1,7 +1,7 @@
 // ⠧⠼⠉⠧⠼⠉
 exports.TINY_SNEK = {
-  delay: 100,
-  width: process.stdout.columns,
+  delay: 50,
+  width: 3,
   height: 1,
   before: [],
   body: [
@@ -16,8 +16,8 @@ exports.TINY_SNEK = {
 };
 
 exports.TALL_SNEK = {
-  delay: 100,
-  width: process.stdout.columns,
+  delay: 25,
+  width: 4,
   height: 2,
   before: [],
   body: [
