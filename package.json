@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/giodamelio/snek#readme",
   "dependencies": {
-    "charm": "^1.0.2",
     "minimist": "^1.2.0",
     "sleep": "^5.1.0",
     "terminal-kit": "^1.11.0"
