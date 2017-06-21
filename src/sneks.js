@@ -15,6 +15,8 @@ exports.TINY_SNEK = {
   after: [],
 };
 
+// ⡇ ⡏⠉⡇ ⡏⠉⡇ ⡏⠉
+// ⣇⣀⢸ ⣇⣀⢸ ⣇⣀⢸
 exports.TALL_SNEK = {
   delay: 25,
   width: 4,
