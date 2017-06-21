@@ -2,7 +2,7 @@
 exports.TINY_SNEK = {
   delay: 100,
   width: process.stdout.columns,
-  height: 2,
+  height: 1,
   before: [],
   body: [
     ['segment', ['⠁', '⠃', '⠇', '⠧']],

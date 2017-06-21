@@ -34,7 +34,7 @@ const commands = {
       case 'right':
         buffer.moveTo(buffer.cx + 1, buffer.cy);
         break;
-      case 'down':
+      case 'left':
         buffer.moveTo(buffer.cx - 1, buffer.cy);
         break;
     }
@@ -49,6 +49,9 @@ module.exports = function runSnek(snek, debug) {
   const buffer = ScreenBuffer.create({
     dst: terminal,
   });
+
+  // Move down to the bottom of the terminal
+  buffer.moveTo(buffer.cx, buffer.height - snek.height);
 
   // TODO: handle the before
 
