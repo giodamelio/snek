@@ -7,7 +7,7 @@ const sneks = require('../src/sneks');
 const version = require('../package.json').version;
 
 const argv = minimist(process.argv.slice(2), {
-  boolean: ['d'],
+  boolean: ['d', 'fast'],
 });
 
 // Print the cli usage
@@ -16,6 +16,11 @@ function printUsage() {
   console.log('usage: snek');
   console.log('       snek tiny');
   console.log('       snek tall');
+  console.log('');
+  console.log(
+    '       You can also add modifiers to your sneks to make them do things'
+  );
+  console.log('       --fast  Doubles the sneks speed');
   process.exit(0);
 }
 
@@ -38,10 +43,20 @@ if (argv._.length === 0) {
 // Draw the snek
 switch (argv._[0]) {
   case 'tiny':
-    runSnek(sneks.TINY_SNEK, argv.d);
+    runSnek(sneks.TINY_SNEK, {
+      debug: argv.d,
+      delay: argv.fast
+        ? Math.floor(sneks.TINY_SNEK.delay / 2)
+        : sneks.TINY_SNEK.delay,
+    });
     break;
   case 'tall':
-    runSnek(sneks.TALL_SNEK, argv.d);
+    runSnek(sneks.TALL_SNEK, {
+      debug: argv.d,
+      delay: argv.fast
+        ? Math.floor(sneks.TALL_SNEK.delay / 2)
+        : sneks.TALL_SNEK.delay,
+    });
     break;
   default:
     console.log('There is no snek named "${argv._[0]}"');

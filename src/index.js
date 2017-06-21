@@ -41,7 +41,10 @@ const commands = {
   },
 };
 
-module.exports = function runSnek(snek, debug) {
+module.exports = function runSnek(snek, overrides) {
+  // Merge the overrides with the snek
+  snek = Object.assign(snek, overrides);
+
   // Reset the terminal
   terminal.reset();
 
@@ -58,14 +61,14 @@ module.exports = function runSnek(snek, debug) {
   // Render the body of the snek
   do {
     for (const [command, ...args] of snek.body) {
-      if (debug) {
+      if (overrides.debug) {
         console.log(command, ...args);
       } else {
         commands[command](buffer, snek, ...args);
         buffer.draw();
       }
     }
-  } while (buffer.cx + snek.width < buffer.width && !debug);
+  } while (buffer.cx + snek.width < buffer.width && !overrides.debug);
 
   // TODO: handle the after
 };
