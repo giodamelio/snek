@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`print default snek 1`] = `
-"{ _: [ 'tiny' ], d: true }
-csegment [ '⠁', '⠃', '⠇', '⠧' ]
+"csegment [ '⠁', '⠃', '⠇', '⠧' ]
 move right
 segment [ '⠄', '⠤', '⠴', '⠼' ]
 move right
@@ -20,8 +19,7 @@ usage: snek
 `;
 
 exports[`print tall snek 1`] = `
-"{ _: [ 'tall' ], d: true }
-csegment [ '⠁', '⠃', '⠇', '⡇' ]
+"csegment [ '⠁', '⠃', '⠇', '⡇' ]
 move down
 segment [ '⠁', '⠃', '⠇', '⡇', '⣇' ]
 move right
@@ -37,8 +35,7 @@ move right
 `;
 
 exports[`print tiny snek 1`] = `
-"{ _: [ 'tiny' ], d: true }
-csegment [ '⠁', '⠃', '⠇', '⠧' ]
+"csegment [ '⠁', '⠃', '⠇', '⠧' ]
 move right
 segment [ '⠄', '⠤', '⠴', '⠼' ]
 move right

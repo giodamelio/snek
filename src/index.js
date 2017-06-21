@@ -56,7 +56,7 @@ module.exports = function runSnek(snek, debug) {
   // TODO: handle the before
 
   // Render the body of the snek
-  while (buffer.cx + snek.width < buffer.width) {
+  do {
     for (const [command, ...args] of snek.body) {
       if (debug) {
         console.log(command, ...args);
@@ -65,7 +65,7 @@ module.exports = function runSnek(snek, debug) {
         buffer.draw();
       }
     }
-  }
+  } while (buffer.cx + snek.width < buffer.width && !debug);
 
   // TODO: handle the after
 };
