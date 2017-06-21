@@ -1,33 +1,38 @@
 // ⠧⠼⠉⠧⠼⠉
 exports.NORMAL_SNEK = {
+  delay: 100,
+  width: process.stdout.columns,
+  height: 2,
+  before: [],
   body: [
-    ['⠁', '⠃', '⠇', '⠧'],
-    ['⠄', '⠤', '⠴', '⠼'],
-    ['⠁', '⠉'],
+    ['segment', ['⠁', '⠃', '⠇', '⠧']],
+    ['move', 'right'],
+    ['segment', ['⠄', '⠤', '⠴', '⠼']],
+    ['move', 'right'],
+    ['segment', ['⠁', '⠉']],
+    ['move', 'right'],
   ],
-  render(frames) {
-    console.log(this.body);
-  }
+  after: [],
 };
 
 exports.TALL_SNEK = {
-  delay: 10,
+  delay: 100,
   width: process.stdout.columns,
   height: 2,
-  before: [
-    ['reset'],
-  ],
+  before: [],
   body: [
-    ['segment', ['⠁', '⠃', '⠇']],
+    ['segment', ['⠁', '⠃', '⠇', '⡇']],
     ['move', 'down'],
-    ['segment', ['⠁', '⠃', '⠇', '⠧']],
-    ['segment', ['⠄', '⠤', '⠴', '⠼']],
+    ['segment', ['⠁', '⠃', '⠇', '⡇', '⣇']],
+    ['move', 'right'],
+    ['segment', ['⢀', '⣀']],
+    ['move', 'right'],
+    ['segment', ['⡀', '⢠', '⢰', '⢸']],
     ['move', 'up'],
-    ['segment', ['⠠', '⠰', '⠸']],
+    ['segment', ['⡀', '⢠', '⢰', '⢸', '⡏']],
+    ['move', 'right'],
     ['segment', ['⠁', '⠉']],
+    ['move', 'right'],
   ],
-  after: [
-    ['newline'],
-    ['newline'],
-  ],
+  after: [],
 };
