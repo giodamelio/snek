@@ -41,7 +41,7 @@ const commands = {
   },
 };
 
-module.exports = function runSnek(snek) {
+module.exports = function runSnek(snek, debug) {
   // Reset the terminal
   terminal.reset();
 
@@ -54,8 +54,12 @@ module.exports = function runSnek(snek) {
 
   // Render the body of the snek
   for (const [command, ...args] of snek.body) {
-    commands[command](buffer, snek, ...args);
-    buffer.draw();
+    if (debug) {
+      console.log(command, ...args);
+    } else {
+      commands[command](buffer, snek, ...args);
+      buffer.draw();
+    }
   }
 
   // TODO: handle the after

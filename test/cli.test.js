@@ -14,3 +14,27 @@ it('print help', () => {
   expect(stdout).toMatchSnapshot();
   expect(stderr).toBe('');
 });
+
+it('print default snek', () => {
+  const { status, stdout, stderr } = runSnek('-d');
+
+  expect(status).toBe(0);
+  expect(stdout).toMatchSnapshot();
+  expect(stderr).toBe('');
+});
+
+it('print tiny snek', () => {
+  const { status, stdout, stderr } = runSnek('-d', 'tiny');
+
+  expect(status).toBe(0);
+  expect(stdout).toMatchSnapshot();
+  expect(stderr).toBe('');
+});
+
+it('print tall snek', () => {
+  const { status, stdout, stderr } = runSnek('-d', 'tall');
+
+  expect(status).toBe(0);
+  expect(stdout).toMatchSnapshot();
+  expect(stderr).toBe('');
+});

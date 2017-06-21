@@ -6,7 +6,9 @@ const runSnek = require('../src');
 const sneks = require('../src/sneks');
 const version = require('../package.json').version;
 
-const argv = minimist(process.argv.slice(2));
+const argv = minimist(process.argv.slice(2), {
+  boolean: ['d'],
+});
 
 // Print the cli usage
 function printUsage() {
@@ -36,10 +38,10 @@ if (argv._.length === 0) {
 // Draw the snek
 switch (argv._[0]) {
   case 'tiny':
-    runSnek(sneks.TINY_SNEK);
+    runSnek(sneks.TINY_SNEK, argv.d);
     break;
   case 'tall':
-    runSnek(sneks.TALL_SNEK);
+    runSnek(sneks.TALL_SNEK, argv.d);
     break;
   default:
     console.log('There is no snek named "${argv._[0]}"');
