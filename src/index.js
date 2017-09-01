@@ -50,6 +50,9 @@ module.exports = function runSnek(snek, overrides) {
   // Reset the terminal
   terminal.reset();
 
+  // Hide the cursor
+  terminal.hideCursor();
+
   // Create a new buffer
   const buffer = ScreenBuffer.create({
     dst: terminal,
@@ -71,4 +74,7 @@ module.exports = function runSnek(snek, overrides) {
       }
     }
   } while (buffer.cx + snek.width < buffer.width && !overrides.debug);
+
+  // Show the cursor again
+  terminal.hideCursor(false);
 };
